@@ -1,8 +1,13 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+skillet_details = RestaurantReviewDetails.create!(
+  location: 'German Village, Columbus, OH'
+)
+
+Review.create!(
+  name: 'Skillet',
+  rating: 5,
+  body: 'Best burger? Yeah. Best brunch? Definitely. Best meal in Columbus? Probabaly.',
+  url: 'https://www.skilletruf.net/',
+  review_details: skillet_detailsrake
+)
