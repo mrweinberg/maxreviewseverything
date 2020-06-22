@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ body > .container {
+   width: 75%;
+ }
+
+
+.review {
+  margin-top: 15px;
+  border: 1px solid black;
+  border-radius: 5px; 
+
+  .name {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .rating {
+    font-weight: bold;
+  }
+}

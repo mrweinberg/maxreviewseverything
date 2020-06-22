@@ -2,4 +2,8 @@
 
 class RestaurantReviewDetails < ApplicationRecord
   include ReviewDetails
+  
+  def type
+    "Restaurant"
+  end
 end

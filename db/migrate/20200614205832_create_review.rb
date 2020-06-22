@@ -10,7 +10,6 @@ class CreateReview < ActiveRecord::Migration[5.2]
       t.string :name
       t.decimal :rating
       t.text :body
-      t.string :type
       t.string :url
 
       t.timestamps

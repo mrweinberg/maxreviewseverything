@@ -1,1 +1,49 @@
-O hello
+<div class="container">
+  <h1>Max Reviews Everything!</h1>
+  <!-- table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Type</th>
+      <th>Link</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><%= review.name %></td>
+          <td><%= review.rating %></td>
+          <td><%= review.type %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <%= review.body %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table-->
+
+  <% @reviews.each do |review| %>
+    <div class="container review">
+      <div class="row">
+        <div class="col-sm name">
+          <%= review.name %>
+        </div>
+        <div class="col-sm rating">
+          <%= review.rating %> / 5.5
+        </div>
+        <div class="col-sm type">
+          <%= review.review_details.type %>
+        </div>
+      </div>
+      <div class="row review-body">
+        <div class="col">
+          <%= review.body %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
