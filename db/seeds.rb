@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'pry'
 
 skillet_details = RestaurantReviewDetails.create!(
   location: 'German Village, Columbus, OH',
@@ -14,7 +15,7 @@ Review.create!(
 )
 
 brekkie_details = RestaurantReviewDetails.create!(
-  location: 'German Village, Columbus, OH',
+  location: 'Grandview Yard, Columbus, OH',
   subtype: 'American Breakfast'
 )
 
@@ -34,6 +35,7 @@ brekkie_burger = RestaurantItemReviewDetails.create!(
 Review.create!(
   name: 'Ohio Wagyu Burger',
   rating: 2,
-  body: "Well, it's edible. And the toppings are reasonable. Too bad they don't season their meat, otherwise I'd be tempted to get more of this burger.",
+  body: "Well, it's edible. And the toppings are reasonable. Too bad they don't season their meat, otherwise I'd be tempted to ever eat this again.",
   review_details: brekkie_burger
 )
+1

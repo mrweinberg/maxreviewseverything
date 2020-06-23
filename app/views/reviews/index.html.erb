@@ -1,6 +1,12 @@
 <div class="container">
   <h1>Max Reviews Everything!</h1>
   <% @reviews.each do |review| %>
+    <% case review.type %>
+    <% when "Restaurant Item" %>
+      <%= render partial: '/reviews/review_types/restaurant_item', locals: {review: review} %>
+    <% when "Restaurant" %>
+      <%= render partial: '/reviews/review_types/restaurant', locals: {review: review} %>
+    <% else %>
     <div class="container review">
       <div class="row">
         <div class="col-sm name">
@@ -19,5 +25,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   <% end %>
 </div>

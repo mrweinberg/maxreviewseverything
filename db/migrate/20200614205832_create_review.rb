@@ -24,7 +24,9 @@ class CreateReview < ActiveRecord::Migration[5.2]
 
     create_table :restaurant_item_review_details, id: :uuid do |t|
       t.string :subtype
-      t.references :restaurant_review_details, index: { name: :index_restaurant_item_review_details_restaurant }
+      t.belongs_to :restaurant_review_details, 
+                    type: :uuid,
+                    index: { name: :index_restaurant_item_review_details_restaurant }
 
       t.timestamps
     end

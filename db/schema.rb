@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_205832) do
 
   create_table "restaurant_item_review_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "subtype"
-    t.bigint "restaurant_review_details_id"
+    t.uuid "restaurant_review_details_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_review_details_id"], name: "index_restaurant_item_review_details_restaurant"
