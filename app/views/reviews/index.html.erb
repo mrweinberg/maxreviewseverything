@@ -6,6 +6,8 @@
       <%= render partial: '/reviews/review_types/restaurant_item', locals: {review: review} %>
     <% when "Restaurant" %>
       <%= render partial: '/reviews/review_types/restaurant', locals: {review: review} %>
+    <% when "Booze" %>
+      <%= render partial: '/reviews/review_types/booze', locals: {review: review} %>
     <% else %>
     <div class="container review">
       <div class="row">

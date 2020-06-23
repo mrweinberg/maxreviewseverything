@@ -38,4 +38,18 @@ Review.create!(
   body: "Well, it's edible. And the toppings are reasonable. Too bad they don't season their meat, otherwise I'd be tempted to ever eat this again.",
   review_details: brekkie_burger
 )
-1
+
+booze_details = BoozeReviewDetails.create!(
+  subtype: 'Beer - Imperial Stout',
+  maker: 'Goose Island'
+)
+
+Review.create!(
+  name: 'Mon Cheri Bourbon County Stout',
+  rating: 4,
+  review_details: booze_details,
+  body: <<-BODY
+      It's a BCS: big, brash, thick, and sweet, albeit a bit less thick than usual. 
+      The added cherries meld well if you like that kinda thing, but the acidity of the cherries kind of take away from the ideal cake-like nature of BCS
+    BODY
+)

@@ -30,5 +30,12 @@ class CreateReview < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    create_table :booze_review_details, id: :uuid do |t|
+      t.string :maker
+      t.string :subtype
+
+      t.timestamps
+    end
   end
 end

@@ -17,6 +17,13 @@ ActiveRecord::Schema.define(version: 2020_06_14_205832) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "booze_review_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "maker"
+    t.string "subtype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "restaurant_item_review_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "subtype"
     t.uuid "restaurant_review_details_id"
