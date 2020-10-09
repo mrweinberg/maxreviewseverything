@@ -30,5 +30,8 @@
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+<% if user_signed_in? %>
+  Logged in as <%= current_user.email %>
+<% else %>
+  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+<% end %>
