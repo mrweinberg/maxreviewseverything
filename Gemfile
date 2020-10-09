@@ -5,6 +5,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+gem 'bootstrap', '>= 4.5.0'
+gem 'devise'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'omniauth-google-oauth2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.3'
@@ -12,14 +16,13 @@ gem 'rubocop'
 gem 'sass-rails', '~> 5.0'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'bootstrap', '>= 4.5.0'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'jbuilder', '~> 2.5'
+gem 'pry-nav'
+gem 'pry-rails'
 gem 'redis', '~> 4.0'
 gem 'turbolinks', '~> 5'
-gem 'pry-rails'
-gem 'pry-nav'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

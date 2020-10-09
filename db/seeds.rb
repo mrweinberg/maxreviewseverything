@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'pry'
 
 skillet_details = RestaurantReviewDetails.create!(
@@ -51,5 +52,5 @@ Review.create!(
   body: <<-BODY
       It's a BCS: big, brash, thick, and sweet, albeit a bit less thick than usual. 
       The added cherries meld well if you like that kinda thing, but the acidity of the cherries kind of take away from the ideal cake-like nature of BCS
-    BODY
+  BODY
 )

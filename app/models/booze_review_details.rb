@@ -2,8 +2,8 @@
 
 class BoozeReviewDetails < ApplicationRecord
   include ReviewDetails
-  
+
   def type
-    "Booze"
+    'Booze'
   end
 end
