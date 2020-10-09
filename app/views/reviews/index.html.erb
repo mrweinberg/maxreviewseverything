@@ -1,5 +1,12 @@
 <div class="container">
   <h1>Max Reviews Everything!</h1>
+  <% if user_signed_in? %>
+  Logged in as 
+    <span style="color: <%= current_user.admin? ? 'blue' : 'black' %>"><%= current_user.email %></span>
+  <% else %>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+  <% end %>
+
   <% @reviews.each do |review| %>
     <% case review.type %>
     <% when "Restaurant Item" %>
@@ -30,8 +37,3 @@
     <% end %>
   <% end %>
 </div>
-<% if user_signed_in? %>
-  Logged in as <%= current_user.email %>
-<% else %>
-  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-<% end %>
