@@ -3,7 +3,7 @@
 class BoozeReviewDetails < ApplicationRecord
   include ReviewDetails
 
-  def type
+  def self.type
     'Booze'
   end
 end

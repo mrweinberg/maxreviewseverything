@@ -3,7 +3,7 @@
 class RestaurantReviewDetails < ApplicationRecord
   include ReviewDetails
 
-  def type
+  def self.type
     'Restaurant'
   end
 end

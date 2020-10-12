@@ -5,7 +5,7 @@ class RestaurantItemReviewDetails < ApplicationRecord
 
   belongs_to :restaurant_review_details
 
-  def type
+  def self.type
     'Restaurant Item'
   end
 end

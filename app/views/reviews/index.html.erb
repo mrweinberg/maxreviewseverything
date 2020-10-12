@@ -1,8 +1,18 @@
 <div class="container">
   <h1>Max Reviews Everything!</h1>
   <% if user_signed_in? %>
-  Logged in as 
+    Logged in as 
     <span style="color: <%= current_user.admin? ? 'blue' : 'black' %>"><%= current_user.email %></span>
+
+    <% if current_user.admin? %>
+      <p>
+        <%= form_tag new_review_path, method: :get do %>
+          Add a review: 
+
+          <%= select_tag :type, options_for_select(Review::TYPES.map(&:type), Review::TYPES.first.type), :onchange => "this.form.submit()" %>
+        <% end %>
+      </p>
+    <% end %>
   <% else %>
     <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
   <% end %>
