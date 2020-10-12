@@ -9,7 +9,7 @@
         <%= form_tag new_review_path, method: :get do %>
           Add a review: 
 
-          <%= select_tag :type, options_for_select(Review::TYPES.map(&:type), Review::TYPES.first.type), :onchange => "this.form.submit()" %>
+          <%= select_tag :type, options_for_select(Review::TYPES.map(&:type)), include_blank: true, :onchange => "this.form.submit()" %>
         <% end %>
       </p>
     <% end %>

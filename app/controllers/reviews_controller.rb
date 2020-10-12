@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_filter :login_required, :only => [:new, :edit, :save]
-
   def index
     @reviews = Review.all
   end
 
   def new
-    if @current_user.admin?
+    if @current_user.nil? || @current_user.admin?
       @type = params[:type]
     else
       render json: {}, status: :unauthorized
@@ -19,6 +17,7 @@ class ReviewsController < ApplicationController
     @id = params[:id]
   end
 
-  def save
+  def create
+    redirect_to reviews_path
   end
 end
