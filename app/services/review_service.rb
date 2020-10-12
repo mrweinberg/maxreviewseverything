@@ -2,21 +2,24 @@
 
 class ReviewService
   def self.create_review(params)
+    review = params['review']
+    review_details = review['review_details']
     case params[:type]
     when BoozeReviewDetails.type
       details = BoozeReviewDetails.create!(
-        maker: params[:maker],
-        subtype: params[:subtype]
+        maker: review_details['maker'],
+        subtype: review_details['subtype']
       )
     when RestaurantReviewDetails.type
       details = RestaurantReviewDetails.create!(
-        location: params[:location],
-        subtype: params[:subtype]
+        location: review_details['location'],
+        subtype: review_details['subtype']
       )
     when RestaurantItemReviewDetails.type
+      binding.pry
       details = RestaurantItemReviewDetails.create!(
-        restaurant_review_details: RestaurantReviewDetails.find(params[:restaurant]),
-        subtype: params[:subtype]
+        restaurant_review_details: RestaurantReviewDetails.find(review_details['restaurant']),
+        subtype: review_details['subtype']
       )
     else
       throw StandardError('Invalid type to create review')
@@ -24,10 +27,10 @@ class ReviewService
 
     Review.create!(
       review_details: details,
-      name: params[:name],
-      rating: params[:rating],
-      body: params[:body],
-      url: params[:url]
+      name: review['name'],
+      rating: review['rating'],
+      body: review['body'],
+      url: review['url']
     )
   end
 

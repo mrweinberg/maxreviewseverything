@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
   def new
     if current_user.present? && current_user.admin?
       @type = params[:type]
+      details = Review.detail_class_for_type(params[:type]).new
+      @review = Review.new(review_details: details)
     else
       redirect_to reviews_path
     end

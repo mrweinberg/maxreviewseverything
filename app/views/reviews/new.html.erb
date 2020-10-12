@@ -1,35 +1,11 @@
 <div class="container">
-  <h1>Adding a review</h1>
+  <h1>Create a Review</h1>
 
-  <%= form_with(url: "/reviews", method: 'post') do %>
-    <div class="row">
-      Name
-      <%= text_field_tag(:name) %>
-    </div>
-    <div class="row">
-      Rating
-      <%= number_field_tag(:rating, 3, min: 0, max: 5.5, step: 0.5) %>
-    </div>
-    <div class="row">
-      Body
-      <%= text_area_tag(:body, '', size: "24x6") %>
-    </div>
-    <div class="row">
-      Url
-      <%= text_field_tag(:url) %>
-    </div>
+  <%= form_with(model: @review) do |f| %>
+    <%= render partial: '/reviews/review_form', locals: {f: f} %>
 
-    <%= hidden_field_tag(:type, @type) %>
-    <% case @type %>
-      <% when BoozeReviewDetails.type %>
-        <%= render partial: '/reviews/review_forms/booze' %>
-      <% when RestaurantReviewDetails.type %>
-        <%= render partial: '/reviews/review_forms/restaurant' %>
-      <% when RestaurantItemReviewDetails.type %>
-        <%= render partial: '/reviews/review_forms/restaurant_item' %>
-    <% end %>
     <div class="row">
-      <%= submit_tag('Save') %>
+      <%= f.submit('Create') %>
     </div>
   <% end %>
 </div>
