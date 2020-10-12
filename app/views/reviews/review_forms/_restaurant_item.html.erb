@@ -5,5 +5,5 @@
 
 <div class="row">
   Restaurant
-  <%= select_tag :Restaurant, options_for_select(RestaurantReviewDetails.all.map { |restaurant| [restaurant.parent_review.name, restaurant.id] } ) %>
+  <%= select_tag :restaurant, options_for_select(RestaurantReviewDetails.all.map { |restaurant| [restaurant.parent_review.name, restaurant.id] } ) %>
 </div>

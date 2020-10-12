@@ -6,10 +6,10 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    if @current_user.nil? || @current_user.admin?
+    if current_user.present? && current_user.admin?
       @type = params[:type]
     else
-      render json: {}, status: :unauthorized
+      redirect_to reviews_path
     end
   end
 
@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    ReviewService.create_review(params)
     redirect_to reviews_path
   end
 end
