@@ -2,9 +2,9 @@
   <h1>Max Reviews Everything!</h1>
   <% if user_signed_in? %>
     Logged in as 
-    <span style="color: <%= current_user.admin? ? 'blue' : 'black' %>"><%= current_user.email %></span>
+    <span style="color: <%= current_user.admin ? 'blue' : 'black' %>"><%= current_user.email %></span>
 
-    <% if current_user.admin? %>
+    <% if current_user.admin %>
       <p>
         <%= form_tag new_review_path, method: :get do %>
           Add a review: 
