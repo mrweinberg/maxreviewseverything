@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReviewService
   def self.create_review(params)
     case params[:type]
@@ -28,4 +30,6 @@ class ReviewService
       url: params[:url]
     )
   end
+
+  def self.update_review(params); end
 end

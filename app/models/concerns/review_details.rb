@@ -8,6 +8,6 @@ module ReviewDetails
   end
 
   included do
-    has_one :reviews, as: :review_details
+    has_one :review, as: :review_details, dependent: :destroy
   end
 end

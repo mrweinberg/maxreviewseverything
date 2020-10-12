@@ -13,12 +13,31 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @id = params[:id]
+  def show
+    if current_user.present? && current_user.admin?
+      @id = params[:id]
+      @review = params[:review]
+      @type = @review.type
+    else
+      redirect_to reviews_path
+    end
   end
 
   def create
-    ReviewService.create_review(params)
+    ReviewService.create_review(params) if current_user.present? && current_user.admin?
+
+    redirect_to reviews_path
+  end
+
+  def update
+    ReviewService.update_review(params) if current_user.present? && current_user.admin?
+
+    redirect_to reviews_path
+  end
+
+  def delete
+    Review.find(params[:id]).destroy if current_user.present? && current_user.admin?
+
     redirect_to reviews_path
   end
 end

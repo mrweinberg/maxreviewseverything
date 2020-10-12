@@ -7,7 +7,7 @@ class Review < ApplicationRecord
     RestaurantReviewDetails
   ].freeze
 
-  belongs_to :review_details, polymorphic: true
+  belongs_to :review_details, polymorphic: true, dependent: :destroy
 
   def type
     review_details.class.type

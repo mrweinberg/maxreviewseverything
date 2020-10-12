@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Adding a review</h1>
+
+  <%= form_with_model: @review do |f| %>
+    <div class="row">
+      Name
+      <%= f.text_field(:name) %>
+    </div>
+    <div class="row">
+      Rating
+      <%= f.number_field(:rating, 3, min: 0, max: 5.5, step: 0.5) %>
+    </div>
+    <div class="row">
+      Body
+      <%= f.text_area(:body, '', size: "24x6") %>
+    </div>
+    <div class="row">
+      Url
+      <%= f.text_field(:url) %>
+    </div>
+
+    <% case @type %>
+      <% when BoozeReviewDetails.type %>
+        <%= render partial: '/reviews/review_forms/booze' %>
+      <% when RestaurantReviewDetails.type %>
+        <%= render partial: '/reviews/review_forms/restaurant' %>
+      <% when RestaurantItemReviewDetails.type %>
+        <%= render partial: '/reviews/review_forms/restaurant_item' %>
+    <% end %>
+    <div class="row">
+      <%= submit_tag('Save') %>
+    </div>
+  <% end %>
+</div>
