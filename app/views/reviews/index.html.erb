@@ -25,7 +25,7 @@
   <% @reviews.each do |review| %>
     <% if current_user&.admin %>
       <div class="show">
-        <a href="<%= review_path(review.id) %>">🔍</a>
+        <a href="<%= review_path(review.id) %>">🗿</a>
       </div>
     <% end %>
     <% case review.type %>
