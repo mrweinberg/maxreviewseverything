@@ -14,27 +14,38 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
- body > .container {
-   width: 75%;
- }
+body > .container {
+  width: 75%;
+}
 
+.login {
+  text-align: right;
+  margin: 5px 15px;
+}
+
+.show {
+  display: inline-block;
+  width: 4%;
+}
 
 .review {
   margin-top: .8em;
   border: .1em solid black;
   border-radius: 5px;
   padding: .6em;
+  display: inline-block;
+  width: 94.9%;
   
-  .col-sm:not(.name):not(.review-body) {
+  .col-sm:not(.review-body):not(.left) {
     margin-top: .4em;
     border-left: .08em solid black;
   }
 
   .name {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .rating {

@@ -1,8 +1,9 @@
-<div class="container">
-  <h1>Max Reviews Everything!</h1>
+<div class="login">
   <% if user_signed_in? %>
-    Logged in as 
-    <span style="color: <%= current_user.admin ? 'blue' : 'black' %>"><%= current_user.email %></span>
+    <p>
+      Logged in as 
+      <span style="color: <%= current_user.admin ? 'blue' : 'black' %>"><%= current_user.email %></span>
+    </p>
 
     <% if current_user.admin %>
       <p>
@@ -12,15 +13,20 @@
           <%= select_tag :type, options_for_select(Review::TYPES.map(&:type)), include_blank: true, :onchange => "this.form.submit()" %>
         <% end %>
       </p>
+    <% else %>
+     <p>&lt;USER TRACKING ENGAGED&gt;</p>
     <% end %>
   <% else %>
     <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
   <% end %>
+</div>
 
+<div class="container">
   <% @reviews.each do |review| %>
     <% if current_user&.admin %>
-      <hr />
-      <a href="<%= review_path(review.id) %>">🔍</a>
+      <div class="show">
+        <a href="<%= review_path(review.id) %>">🔍</a>
+      </div>
     <% end %>
     <% case review.type %>
     <% when "Restaurant Item" %>

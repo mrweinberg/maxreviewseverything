@@ -1,10 +1,11 @@
 <div class="container review restaurant-item">
   <div class="row">
-    <div class="col-sm name">
-      <%= review.name %>
-    </div>
-    <div class="col-sm">
-      <%= review.review_details.restaurant_review_details.parent_review.name %>
+    <div class="col-sm left">
+      <span class="name"><%= review.name %></span>
+
+      from
+
+      <span class="name"><%= review.review_details.restaurant_review_details.parent_review.name %></span>
     </div>
     <div class="col-sm rating">
       <%= review.rating %> / 5.5
