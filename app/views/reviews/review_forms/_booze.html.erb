@@ -1,4 +1,4 @@
-<%= f.fields_for :review_details do |details_form| %>
+<%= f.fields_for :review_details, @review.review_details do |details_form| %>
   <div class="row">
     Subtype
     <%= details_form.text_field(:subtype) %>

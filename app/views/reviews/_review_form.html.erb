@@ -14,13 +14,13 @@
   Url
   <%= f.text_field(:url) %>
 </div>
+<%= hidden_field_tag(:type, @review.type) %>
 
-<%= hidden_field_tag(:type, @type) %>
-<% case @type %>
-  <% when BoozeReviewDetails.type %>
+<% case @review.review_details %>
+  <% when BoozeReviewDetails %>
     <%= render partial: '/reviews/review_forms/booze', locals: {f: f} %>
-  <% when RestaurantReviewDetails.type %>
+  <% when RestaurantReviewDetails %>
     <%= render partial: '/reviews/review_forms/restaurant', locals: {f: f} %>
-  <% when RestaurantItemReviewDetails.type %>
+  <% when RestaurantItemReviewDetails %>
     <%= render partial: '/reviews/review_forms/restaurant_item', locals: {f: f} %>
 <% end %>

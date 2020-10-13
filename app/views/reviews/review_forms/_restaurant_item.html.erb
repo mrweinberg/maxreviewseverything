@@ -1,11 +1,11 @@
-<%= f.fields_for :review_details do |details_form| %>
+<%= f.fields_for :review_details, @review.review_details do |details_form| %>
   <div class="row">
     Subtype
-    <%= details_form.text_field(:subtype) %>
+    <%= details_form.text_field :subtype %>
   </div>
 
   <div class="row">
     Restaurant
-    <%= details_form.select :restaurant, options_for_select(RestaurantReviewDetails.all.map { |restaurant| [restaurant.parent_review.name, restaurant.id] } ) %>
+    <%= details_form.select :restaurant_review_details_id, options_for_select(RestaurantReviewDetails.all.map { |restaurant| [restaurant.parent_review.name, restaurant.id] }, details_form.object.restaurant_review_details_id) %>
   </div>
 <% end %>

@@ -2,7 +2,7 @@
 
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order(created_at: :desc)
   end
 
   def new
@@ -18,8 +18,7 @@ class ReviewsController < ApplicationController
   def show
     if current_user.present? && current_user.admin?
       @id = params[:id]
-      @review = params[:review]
-      @type = @review.type
+      @review = Review.find(@id)
     else
       redirect_to reviews_path
     end
@@ -37,7 +36,7 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path
   end
 
-  def delete
+  def destroy
     Review.find(params[:id]).destroy if current_user.present? && current_user.admin?
 
     redirect_to reviews_path

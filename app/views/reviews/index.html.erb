@@ -18,6 +18,10 @@
   <% end %>
 
   <% @reviews.each do |review| %>
+    <% if current_user&.admin %>
+      <hr />
+      <a href="<%= review_path(review.id) %>">🔍</a>
+    <% end %>
     <% case review.type %>
     <% when "Restaurant Item" %>
       <%= render partial: '/reviews/review_types/restaurant_item', locals: {review: review} %>

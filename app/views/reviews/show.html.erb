@@ -1,12 +1,12 @@
 <div class="container">
-  <%= form_with(model: @review) do |f| %>
+  <%= form_with(model: @review, method: :put) do |f| %>
     <%= render partial: '/reviews/review_form', locals: {f: f} %>
 
     <div class="row">
       <%= f.submit('Update') %>
     </div>
-    <div class="row">
-      <%= button_to 'Delete', review_path(@review.id), method: :delete %>
-    </div>
   <% end %>
+  <div class="row">
+    <%= button_to 'Delete', review_path(@review.id), method: :delete %>
+  </div>
 </div>
