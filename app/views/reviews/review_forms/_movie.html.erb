@@ -1,0 +1,16 @@
+<%= f.fields_for :review_details, @review.review_details do |details_form| %>
+  <div class="row">
+    Director
+    <%= details_form.text_field(:director) %>
+  </div>
+
+  <div class="row">
+    Actors
+    <%= details_form.text_field(:actors) %>
+  </div>
+
+  <div class="row">
+    Genre
+    <%= details_form.text_field(:genre) %>
+  </div>
+<% end %>

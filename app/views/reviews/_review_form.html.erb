@@ -23,4 +23,12 @@
     <%= render partial: '/reviews/review_forms/restaurant', locals: {f: f} %>
   <% when RestaurantItemReviewDetails %>
     <%= render partial: '/reviews/review_forms/restaurant_item', locals: {f: f} %>
+  <% when VideoGameReviewDetails %>
+    <%= render partial: '/reviews/review_forms/video_game', locals: {f: f} %>
+  <% when MovieReviewDetails %>
+    <%= render partial: '/reviews/review_forms/movie', locals: {f: f} %>
+  <% when TvShowReviewDetails %>
+    <%= render partial: '/reviews/review_forms/tv_show', locals: {f: f} %>
+  <% when TvShowSeasonReviewDetails %>
+    <%= render partial: '/reviews/review_forms/tv_show_season', locals: {f: f} %>
 <% end %>

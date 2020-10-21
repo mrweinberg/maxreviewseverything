@@ -4,7 +4,11 @@ class Review < ApplicationRecord
   TYPES = [
     BoozeReviewDetails,
     RestaurantItemReviewDetails,
-    RestaurantReviewDetails
+    RestaurantReviewDetails,
+    MovieReviewDetails,
+    TvShowReviewDetails,
+    TvShowSeasonReviewDetails,
+    VideoGameReviewDetails
   ].freeze
 
   belongs_to :review_details, polymorphic: true, dependent: :destroy

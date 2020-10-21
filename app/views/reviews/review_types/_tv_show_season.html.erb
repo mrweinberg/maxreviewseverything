@@ -1,0 +1,19 @@
+<div class="container review tv-show-season">
+  <div class="row">
+    <div class="col-sm name left">
+      <%= review.name %>      
+      
+      of
+
+      <span class="name"><%= review.review_details.tv_show_review_details.parent_review.name %></span>
+    </div>
+    <div class="col-sm rating">
+      <%= review.rating %> / 5.5
+    </div>
+  </div>
+  <div class="row review-body">
+    <div class="col">
+      <%= review.body %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container review video-game">
+  <div class="row">
+    <div class="col-sm name left">
+      <%= review.name %>
+    </div>
+    <div class="col-sm">
+      <%= review.review_details.developer %>
+    </div>
+    <div class="col-sm rating">
+      <%= review.rating %> / 5.5
+    </div>
+    <div class="col-sm type">
+      <%= review.review_details.genre %>
+    </div>
+  </div>
+  <div class="row review-body">
+    <div class="col">
+      <%= review.body %>
+    </div>
+  </div>
+</div>

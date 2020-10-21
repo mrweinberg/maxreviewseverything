@@ -20,6 +20,27 @@ class ReviewService
         restaurant_review_details_id: review_details['restaurant_review_details_id'],
         subtype: review_details['subtype']
       )
+    when MovieReviewDetails.type
+      details = MovieReviewDetails.create!(
+        director: review_details['director'],
+        actors: review_details['actors'].split(',').map(&:strip),
+        genre: review_details['genre']
+      )
+    when TvShowReviewDetails.type
+      details = TvShowReviewDetails.create!(
+        network: review_details['network'],
+        actors: review_details['actors'].split(',').map(&:strip),
+        genre: review_details['genre']
+      )
+    when TvShowSeasonReviewDetails.type
+      details = TvShowSeasonReviewDetails.create!(
+        tv_show_review_details_id: review_details['tv_show_review_details_id']
+      )
+    when VideoGameReviewDetails.type
+      details = VideoGameReviewDetails.create!(
+        developer: review_details['developer'],
+        genre: review_details['genre']
+      )
     else
       throw StandardError('Invalid type to create review')
     end
@@ -52,6 +73,27 @@ class ReviewService
       review.review_details.update!(
         restaurant_review_details_id: detail_params['restaurant_review_details_id'],
         subtype: detail_params['subtype']
+      )
+    when MovieReviewDetails.type
+      review.review_details.update!(
+        director: detail_params['director'],
+        actors: detail_params['actors'].split(',').map(&:strip),
+        genre: detail_params['genre']
+      )
+    when TvShowReviewDetails.type
+      review.review_details.update!(
+        network: detail_params['network'],
+        actors: detail_params['actors'].split(',').map(&:strip),
+        genre: detail_params['genre']
+      )
+    when TvShowSeasonReviewDetails.type
+      review.review_details.update!(
+        tv_show_review_details_id: detail_params['tv_show_review_details_id']
+      )
+    when VideoGameReviewDetails.type
+      review.review_details.update!(
+        developer: detail_params['developer'],
+        genre: detail_params['genre']
       )
     else
       throw StandardError('Invalid type to create review')

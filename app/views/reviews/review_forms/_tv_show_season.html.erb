@@ -1,0 +1,6 @@
+<%= f.fields_for :review_details, @review.review_details do |details_form| %>
+  <div class="row">
+    TV Show
+    <%= details_form.select :tv_show_review_details_id, options_for_select(TvShowReviewDetails.all.map { |tv_show| [tv_show.parent_review.name, tv_show.id] }, details_form.object.tv_show_review_details_id) %>
+  </div>
+<% end %>
